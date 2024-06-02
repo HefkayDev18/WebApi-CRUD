@@ -1,0 +1,6 @@
+@EMP_WebApiCRUD_HostAddress = https://localhost:7248
+
+GET {{EMP_WebApiCRUD_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
