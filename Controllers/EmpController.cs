@@ -20,7 +20,7 @@ namespace EMP_WebApiCRUD.Controllers
             _db = db;
         }
 
-        [HttpGet]
+        [HttpGet("GetAllEmployees")]
         public IActionResult GetAllEmployees()
         {
             var EmpList = _db.Employees.ToList();
@@ -28,7 +28,7 @@ namespace EMP_WebApiCRUD.Controllers
             return Ok(EmpList);
         }
 
-        [HttpPost]
+        [HttpPost("AddEmployee")]
         public IActionResult AddEmployee(AddEmployeeVM employeeVM)
         {
             var newEmployee = new Employee()
@@ -46,7 +46,7 @@ namespace EMP_WebApiCRUD.Controllers
         }
 
         [HttpGet]
-        [Route("{id:int}")]
+        [Route("GetEmployeeById/{id:int}")]
         public IActionResult GetEmployeeById(int id)
         {
             var foundEmployee = _db.Employees.Find(id);
@@ -60,7 +60,7 @@ namespace EMP_WebApiCRUD.Controllers
         }
 
         [HttpPut]
-        [Route("{id:int}")]
+        [Route("UpdateEmployee/{id:int}")]
         public IActionResult UpdateEmployee(int id, UpdateEmployeeVm updEmpVM)
         {
             var updatedEmployee = _db.Employees.Find(id);
@@ -83,7 +83,7 @@ namespace EMP_WebApiCRUD.Controllers
         }
 
         [HttpDelete]
-        [Route("{id:int}")]
+        [Route("DeleteEmployee/{id:int}")]
         public IActionResult DeleteEmployee(int id) 
         {
             var foundEmployee = _db.Employees.Find(id);
